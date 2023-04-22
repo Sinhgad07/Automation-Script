@@ -13,7 +13,3 @@ $URL ="https://code.visualstudio.com/docs/?dv=win"
 Invoke-WebRequest -Uri $URL -OutFile "E:\PowerShell Script\VSCodeUserSetup-x64-1.77.3.exe"
 Start-Process -FilePath 'E:\PowerShell Script\VSCodeUserSetup-x64-1.77.3.exe' -Verb runsAS -ArgumentList "/S"
 
-#Downloading and installing silently notepad ++
-$URL ="https://notepad-plus-plus.org/downloads/v8.5.2/"
-Invoke-WebRequest -Uri $URL -OutFile "E:\PowerShell Script\npp.8.5.2.Installer.x64.exe"
-Start-Process -FilePath "E:\PowerShell Script\npp.8.5.2.Installer.x64.exe" -Verb runAs -ArgumentList "/S"
