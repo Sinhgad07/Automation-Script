@@ -1,13 +1,15 @@
 ﻿#COPYING ZIP FILE TO LOCAL SERVER
-Copy-Item -Path \\par-server\Softwares\Installer.zip -Destination C:\tmp
+param($location = 'C:\tmp')
+Copy-Item -Path \\par-server\Softwares\Installer.zip -Destination $location
 Write-Host 'Files copied to local network'
 
 #UNZIPPING FILE
-Expand-7Zip -ArchiveFileName C:\tmp\Installer.zip -TargetPath C:\tmp\softwares -Password 'Partronics@07'
+param($passwrd = 'Partronics@07')
+Expand-7Zip -ArchiveFileName C:\tmp\Installer.zip -TargetPath C:\tmp\softwares -Password $passwrd
 Write-Host 'files unzipped' -ForegroundColor DarkGreen
 
 #1. INSTALLING VLC MEDIA PLAYER 
-Start-Process -FilePath C:\ -Verb runAs -ArgumentList "/S"
+Start-Process -FilePath  -Verb runAs -ArgumentList "/S"
 Write-Host 'vlc media player installed successfully!' 
 
 #2. INSTALLING 7ZIP
