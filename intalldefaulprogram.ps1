@@ -1,7 +1,10 @@
-﻿Copy-Item -Path \\par-server\Softwares\Installer.zip -Destination C:\tmp\softwareinstaller.zip
+﻿
+param($userpath = 'C:\Temp')
+Copy-Item -Path \\par-server\Softwares\Installer.zip -Destination $userpath
 Write-Host 'Files copied to local network'
 
-Expand-7Zip -ArchiveFileName C:\softwareinstaller.zip -TargetPath C:\tmp\softwares -Password 'Partronics@07'
+param($pass = "Partronics@07")
+Expand-7Zip -ArchiveFileName C:\softwareinstaller.zip -TargetPath C:\tmp\softwares -Password $pass
 Write-Host 'files unzipped' -ForegroundColor DarkGreen
 
 Start-Process -FilePath C:\tmp\ -Verb runAs -ArgumentList "/S"

@@ -1,7 +1,7 @@
 ﻿#creating a Floder
+
 New-Item -Path 'C:\DownloadPrograms' -ItemType Directory;
 Write-Host "Folder is created..." -ForegroundColor Magenta
-
 
 #7ZIP 
 Write-Host "Downloading 7Zip ......." -ForegroundColor Yellow ;
@@ -49,8 +49,29 @@ Write-Host "Downloading Anydesk......."-ForegroundColor Yellow ;
 Invoke-WebRequest -Uri 'https://download.anydesk.com/AnyDesk.exe' -OutFile 'C:\DownloadPrograms\AnyDesk.exe';
 Write-Host "AnyDesk downloaded successfully." -ForegroundColor Green
 
+#Dot.Net
+Write-Host "Downloading Dot.net...." -ForegroundColor Yellow
+Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/6f083c7e-bd40-44d4-9e3f-ffba71ec8b09/3951fd5af6098f2c7e8ff5c331a0679c/ndp481-x86-x64-allos-enu.exe" -OutFile 'C:\DownloadPrograms\ndp.exe'
+Write-Host "Dot.Net framework downloaded succesfully." -ForegroundColor Green
+
+#SQL SERVER 2008
+Write-Host "Copying sql server 2008 folder to existing folder" -ForegroundColor Yellow
+Copy-Item -Path "\\par-server\Softwares\Softwares on Server (Server)\SQL Server 2008\SQL 2008" -Destination "C:\DownloadPrograms"
+Write-Host "Folder is copied!!!" -ForegroundColor Green
+
+#MS office 2007
+Write-Host "Copying MS office 2007 folder to existing folder" -ForegroundColor Yellow
+Copy-Item -Path "\\par-server\Softwares\Softwares on Server (Server)\MS Office 2007\" -Destination "C:\DownloadPrograms"
+Write-Host "Folder is copied!!!" -ForegroundColor Green
+
+#Adobe Acrobat Reader
+Write-Host "Downloading Adobe Acrobat reader......."-ForegroundColor Yellow ;
+Invoke-WebRequest -Uri "blob:https://get.adobe.com/5838488e-4aad-43d8-93af-37f943b43b51" -OutFile 'C:\DownloadPrograms\AnyDesk.exe';
+Write-Host "Adobe Acrobat reader downloaded successfully." -ForegroundColor Green
+
 #Converting Folder to zip file
-Compress-7Zip -ArchiveFileName 'C:\Installer.zip' -Path 'C:\DownloadPrograms' -Format Zip -Password 'Partronics@07';
+#param($des = "Partronics@07")
+Compress-7Zip -ArchiveFileName 'C:\Installer.zip' -Path 'C:\DownloadPrograms' -Format Zip -Password "Partronics@07" ;
 Write-Host "ZipFile is Created" -ForegroundColor Cyan
 
 #Copying zip file to server
