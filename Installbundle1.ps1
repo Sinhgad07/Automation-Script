@@ -1,4 +1,7 @@
-﻿#creating a Floder
+﻿
+param($des = "Partronics@07")
+
+#creating a Floder
 
 New-Item -Path 'C:\DownloadPrograms' -ItemType Directory;
 Write-Host "Folder is created..." -ForegroundColor Magenta
@@ -70,7 +73,6 @@ Invoke-WebRequest -Uri "blob:https://get.adobe.com/5838488e-4aad-43d8-93af-37f94
 Write-Host "Adobe Acrobat reader downloaded successfully." -ForegroundColor Green
 
 #Converting Folder to zip file
-#param($des = "Partronics@07")
 Compress-7Zip -ArchiveFileName 'C:\Installer.zip' -Path 'C:\DownloadPrograms' -Format Zip -Password "Partronics@07" ;
 Write-Host "ZipFile is Created" -ForegroundColor Cyan
 

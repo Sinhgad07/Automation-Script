@@ -1,10 +1,10 @@
 ﻿#COPYING ZIP FILE TO LOCAL SERVER
-param($location = 'C:\tmp')
+param($location = 'C:\tmp',$passwrd = 'Partronics@07')
+
 Copy-Item -Path \\par-server\Softwares\Installer.zip -Destination $location
 Write-Host 'Files copied to local network'
 
 #UNZIPPING FILE
-param($passwrd = 'Partronics@07')
 Expand-7Zip -ArchiveFileName C:\tmp\Installer.zip -TargetPath C:\tmp\softwares -Password $passwrd
 Write-Host 'files unzipped' -ForegroundColor DarkGreen
 
