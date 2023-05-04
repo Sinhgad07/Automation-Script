@@ -59,18 +59,19 @@ Write-Host "Dot.Net framework downloaded succesfully." -ForegroundColor Green
 
 #SQL SERVER 2008
 Write-Host "Copying sql server 2008 folder to existing folder" -ForegroundColor Yellow
-Copy-Item -Path "\\par-server\Softwares\Softwares on Server (Server)\SQL Server 2008\SQL 2008" -Destination "C:\DownloadPrograms"
+Copy-Item -Path "\\par-server\Softwares\Softwares on Server (Server)\SQL Server 2008\SQL 2008" -Destination "C:\DownloadPrograms" -Recurse
 Write-Host "Folder is copied!!!" -ForegroundColor Green
 
 #MS office 2007
 Write-Host "Copying MS office 2007 folder to existing folder" -ForegroundColor Yellow
-Copy-Item -Path "\\par-server\Softwares\Softwares on Server (Server)\MS Office 2007\" -Destination "C:\DownloadPrograms"
+Copy-Item -Path "\\par-server\Softwares\Softwares on Server (Server)\MS Office 2007" -Destination "C:\DownloadPrograms" -Recurse
 Write-Host "Folder is copied!!!" -ForegroundColor Green
 
 #Adobe Acrobat Reader
-Write-Host "Downloading Adobe Acrobat reader......."-ForegroundColor Yellow ;
-Invoke-WebRequest -Uri "blob:https://get.adobe.com/5838488e-4aad-43d8-93af-37f943b43b51" -OutFile 'C:\DownloadPrograms\AnyDesk.exe';
-Write-Host "Adobe Acrobat reader downloaded successfully." -ForegroundColor Green
+Write-Host "Copying Adobe Acrobat Reader " -ForegroundColor Yellow
+Copy-Item -Path "\\par-server\Softwares\Softwares on Server (Server)\AdbeRdr11010_en_US.exe" -Destination "C:\DownloadPrograms\Adobe Reader.exe"
+Write-Host "Folder is copied!!!" -ForegroundColor Green
+
 
 #Converting Folder to zip file
 Compress-7Zip -ArchiveFileName 'C:\Installer.zip' -Path 'C:\DownloadPrograms' -Format Zip -Password "Partronics@07" ;
